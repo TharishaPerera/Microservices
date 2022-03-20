@@ -37,17 +37,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <form class="col-md-4" action="#" th:action="@{search-product}" th:object="${product}" method="post">
                         <label for="productId" class="form-label">Enter Product ID:</label>
                         <input type="number" min="1" class="form-control" id="productId" th:field="*{productId}"/>
-                        <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                            <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
+                        </div>
                     </form>
                     <form class="col-md-4" action="#" th:action="@{search-product}" th:object="${product}" method="post">
                         <label for="productName" class="form-label">Enter Product Name:</label>
                         <input type="text" min="1" class="form-control" id="productName" th:field="*{productName}"/>
-                        <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                            <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
+                        </div>
                     </form>
                     <form class="col-md-4" action="#" th:action="@{search-product}" th:object="${product}" method="post">
                         <label for="productType" class="form-label">Enter Product Type:</label>
                         <input type="text" min="1" class="form-control" id="productType" th:field="*{productType}"/>
-                        <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
+                            <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -62,4 +62,18 @@ public class ProductController {
 
         return "new_product";
     }
+
+    @GetMapping(path = "/edit-product")
+    public String editProductView(Model model) {
+        model.addAttribute("product", new Product());
+        return "edit_product";
+    }
+
+    @PostMapping(path = "/edit-product")
+    public String editProductById(Model model, @ModelAttribute Product product) {
+        RestTemplate restTemplate = new RestTemplate();
+        Product editProduct = restTemplate.getForObject(BASE_URL + "/products/" + product.getProductId(), Product.class);
+        model.addAttribute("editProduct", editProduct);
+        return "edit_product";
+    }
 }

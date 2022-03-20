@@ -23,7 +23,7 @@ public class ProductController {
     @GetMapping(path = "/products")
     public String productsView(Model model) {
         model.addAttribute("product", new Product());
-        return "ProductHome";
+        return "product_home";
     }
 
     @GetMapping(path = "/all-products")

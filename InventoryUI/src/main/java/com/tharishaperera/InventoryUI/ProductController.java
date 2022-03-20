@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -35,4 +37,43 @@ public class ProductController {
         return "all_products";
     }
 
+    @GetMapping(path = "/search-product")
+    public String searchProductView(Model model) {
+        model.addAttribute("product", new Product());
+        return "search_product";
+    }
+
+    @PostMapping(path = "/search-product")
+    public String searchProductById(Model model, @ModelAttribute Product product) {
+        RestTemplate restTemplate = new RestTemplate();
+        Product searchedProduct = restTemplate.getForObject(BASE_URL + "/products/" + product.getProductId(), Product.class);
+        model.addAttribute("searchedProduct", searchedProduct);
+        return "search_product";
+    }
+
+    @GetMapping(path = "/new-product")
+    public String newProductView(Model model) {
+        model.addAttribute("product", new Product());
+        return "new_product";
+    }
+
+    @PostMapping(path = "/new-product")
+    public String newProductById(Model model, @ModelAttribute Product product) {
+
+        return "new_product";
+    }
+
+    @GetMapping(path = "/edit-product")
+    public String editProductView(Model model) {
+        model.addAttribute("product", new Product());
+        return "edit_product";
+    }
+
+    @PostMapping(path = "/edit-product")
+    public String editProductById(Model model, @ModelAttribute Product product) {
+        RestTemplate restTemplate = new RestTemplate();
+        Product editProduct = restTemplate.getForObject(BASE_URL + "/products/" + product.getProductId(), Product.class);
+        model.addAttribute("editProduct", editProduct);
+        return "edit_product";
+    }
 }

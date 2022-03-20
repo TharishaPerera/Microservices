@@ -37,7 +37,7 @@
     <!--To display the results from search-->
     <div th:if="${searchedSupplier}">
         <div class="container-md border">
-            <div class="row align-items-start">
+            <div class="row">
                 <div class="col border">Supplier ID</div>
                 <div class="col border">Supplier Name</div>
                 <div class="col border">Industry</div>
@@ -48,7 +48,7 @@
                 <div class="col border">Country</div>
                 <div class="col border">Postal Code</div>
             </div>
-            <div class="row align-items-start">
+            <div class="row">
                 <div class="col border" th:text="${searchedSupplier.supplierId}"></div>
                 <div class="col border" th:text="${searchedSupplier.supplierName}"></div>
                 <div class="col border" th:text="${searchedSupplier.industry}"></div>

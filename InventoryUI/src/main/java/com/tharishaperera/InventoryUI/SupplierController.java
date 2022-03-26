@@ -1,5 +1,6 @@
 package com.tharishaperera.InventoryUI;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,19 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class SupplierController {
 
+    private final static String BASE_URL = "http://localhost:8080";
+
+    @GetMapping(path = "/all-suppliers")
+    public String getAllSuppliers(Model model){
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Supplier[]> response = restTemplate.getForEntity(BASE_URL + "/suppliers", Supplier[].class);
+        Supplier[] suppliers = response.getBody();
+        model.addAttribute("suppliers", suppliers);
+        return "supplier";
+    }
+
     @GetMapping(path = "/search-supplier")
-    public String getAllSearchedSuppliers(Model model){
+    public String getSearchedSupplier(Model model) {
         model.addAttribute("supplier", new Supplier());
         return "supplier";
     }
@@ -37,7 +49,7 @@ public class SupplierController {
     @PostMapping(path = "/search-supplier")
     public String searchSupplierById(Model model, @ModelAttribute Supplier supplier){
         RestTemplate restTemplate = new RestTemplate();
-        Supplier searchedSupplier = restTemplate.getForObject("http://localhost:8080/suppliers/" + supplier.getSupplierId(), Supplier.class);
+        Supplier searchedSupplier = restTemplate.getForObject(BASE_URL  +"/suppliers/" + supplier.getSupplierId(), Supplier.class);
         model.addAttribute("searchedSupplier", searchedSupplier);
         return "supplier";
     }

@@ -68,6 +68,35 @@
                     </div>
                 </div>
 
+                <div class="row mt-3">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                        <th>Supplier ID</th>
+                        <th>Supplier Name</th>
+                        <th>Industry</th>
+                        <th>Supplier Email</th>
+                        <th>Supplier Telephone</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Postal Code</th>
+                        </thead>
+                        <tbody>
+                        <tr th:each="supplier : ${suppliers}">
+                            <td th:text="${supplier.supplierId}"></td>
+                            <td th:text="${supplier.supplierName}"></td>
+                            <td th:text="${supplier.industry}"></td>
+                            <td th:text="${supplier.supplierEmail}"></td>
+                            <td th:text="${supplier.supplierTelephone}"></td>
+                            <td th:text="${supplier.street}"></td>
+                            <td th:text="${supplier.city}"></td>
+                            <td th:text="${supplier.country}"></td>
+                            <td th:text="${supplier.postalCode}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <!--To display the results from search-->
                 <div th:if="${searchedSupplier}">
                     <div class="container-md border">

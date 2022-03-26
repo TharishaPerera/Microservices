@@ -11,9 +11,27 @@ import org.springframework.web.client.RestTemplate;
 public class SupplierController {
 
     @GetMapping(path = "/search-supplier")
-    public String getAllSearchedUsers(Model model){
+    public String getAllSearchedSuppliers(Model model){
         model.addAttribute("supplier", new Supplier());
         return "supplier";
+    }
+
+    @GetMapping(path = "/add-supplier")
+    public String getAddSupplier(Model model){
+        model.addAttribute("supplier", new Supplier());
+        return "add-supplier";
+    }
+
+    @GetMapping(path = "/edit-supplier")
+    public String getEditSupplier(Model model){
+        model.addAttribute("supplier", new Supplier());
+        return "edit-supplier";
+    }
+
+    @GetMapping(path = "/delete-supplier")
+    public String getDeleteSupplier(Model model){
+        model.addAttribute("supplier", new Supplier());
+        return "delete-supplier";
     }
 
     @PostMapping(path = "/search-supplier")

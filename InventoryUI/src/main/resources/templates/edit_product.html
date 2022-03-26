@@ -55,6 +55,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <div class="col-6">
                             <label for="type" class="form-label">Product Type</label>
                             <input type="text" class="form-control" id="type" th:value="${editProduct.productType}">
+                            
+<!--                            <select class="form-select" id="type" th:field="*{editProduct.productType}">
+                                <option th:each="product : ${productCategories}" th:text="${product}" />
+                                <option value="electronic">Electronic</option>
+                                <option value="automobile">Automobile</option>
+                                <option value="textiles">Textiles</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="pharmaceutical">Pharmaceutical</option>
+                                <option value="telecommunication">Telecommunication</option>
+                            </select>-->
                         </div>
                         <div class="col-md-6">
                             <label for="unitPrice" class="form-label">Unit Price</label>

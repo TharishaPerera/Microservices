@@ -34,14 +34,14 @@ public class ProductService {
     }
 
     //Get Product By Name
-    public List<Product> getProductByName(String productName){
-        return productRepository.getProductByName(productName);
-    }
+//    public List<Product> getProductByName(String productName){
+//        return productRepository.getProductByName(productName);
+//    }
 
     //Get Product By Type
-    public List<Product> getProductByType(String productType){
-        return productRepository.getProductByType(productType);
-    }
+//    public List<Product> getProductByType(String productType){
+//        return productRepository.getProductByType(productType);
+//    }
 
     //Create Product
     public void createProduct(Product product) {

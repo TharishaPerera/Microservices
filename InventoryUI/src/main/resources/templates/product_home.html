@@ -25,6 +25,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     width: 60%;
                 }
             </style>
+
+            <script>
+                function myPrompt(){
+                    var response = confirm("Are you sure you want to delete all products?");
+                    if(response == true){
+                        myAnchor.setAttribute("href", "/delete-all-products");
+                    }
+                }
+            </script>
     </head>
     <body th:style="'height:100vh; width: 100%; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/CSS/Images/overlay.jpg), url(/CSS/Images/Background.jpg); background-repeat: no-repeat; background-position: top; background-size: cover;'">
         <div class="container my-container">
@@ -60,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                     <div class="col">
                         <div class="">
-                            <a href="#" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Delete All Products</a>
+                            <a onclick="myPrompt()" id="myAnchor" href="" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Delete All Products</a>
                         </div>
                     </div>
 

@@ -35,15 +35,15 @@ public class ProductController {
         return productService.getProductByID(productId);
     }
 
-    @GetMapping(path = "/products/productName")
-    public List<Product> getProductByName(@RequestParam String productName){
-        return productService.getProductByName(productName);
-    }
+//    @GetMapping(path = "/products/names")
+//    public List<Product> getProductByName(@RequestParam String productName){
+//        return productService.getProductByName(productName);
+//    }
 
-    @GetMapping(path = "/products/productType")
-    public List<Product> getProductByType(@RequestParam String productType){
-        return productService.getProductByType(productType);
-    }
+//    @GetMapping(path = "/products/productType")
+//    public List<Product> getProductByType(@RequestParam String productType){
+//        return productService.getProductByType(productType);
+//    }
 
     @PostMapping(path = "/products")
     public void createProduct(@RequestBody Product product) {

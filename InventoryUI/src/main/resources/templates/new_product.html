@@ -27,34 +27,45 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </nav>
             </div>
             <div class="row mt-3">
-                <form class="row g-3" action="#" th:action="@{products}" th:object="${product}" method="post">
+                <form class="row g-3" action="#" th:action="@{/newProduct}" th:object="${product}" method="post">
                     <div class="col-12">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" >
+                        <input name="productName" type="text" class="form-control" id="productName" >
                     </div>
                     <div class="col-12">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" >
+                        <input name="productDescription" type="text" class="form-control" id="description" >
                     </div>
                     <div class="col-md-6">
-                        <label for="type" class="form-label">Product Type</label>
-                        <input type="text" class="form-control" id="type" >
+                        <label for="type" class="form-label">Product Category</label>
+                        <input name="productType" type="text" class="form-control" id="type" >
+                            
+<!--                        <select class="form-select" name="product">
+                            <option th:each="product : ${productCategories}" th:text="${product}" />
+                            <option selected>Select Category</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="automobile">Automobile</option>
+                            <option value="textiles">Textiles</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="pharmaceutical">Pharmaceutical</option>
+                            <option value="telecommunication">Telecommunication</option>
+                        </select>-->
                     </div>
                     <div class="col-md-6">
                         <label for="unitPrice" class="form-label">Unit Price</label>
-                        <input type="text" class="form-control" id="unitPrice" >
+                        <input name="unitPrice" type="text" class="form-control" id="unitPrice" >
                     </div>
                     <div class="col-md-4">
                         <label for="availablity" class="form-label">Availability</label>
-                        <input type="text" class="form-control" id="availablity" >
+                        <input name="isAvailable" type="text" class="form-control" id="availablity" >
                     </div>
                     <div class="col-md-4">
                         <label for="quantity" class="form-label">Quantity</label>
-                        <input type="text" class="form-control" id="quantity" >
+                        <input name="availableQuantity" type="text" class="form-control" id="quantity" >
                     </div>
                     <div class="col-md-4">
                         <label for="supplierId" class="form-label">Supplier ID</label>
-                        <input type="text" class="form-control" id="supplierId" >
+                        <input name="supplierId" type="text" class="form-control" id="supplierId" >
                     </div>
                     <div class="col-12">
                         <button class="btn btn-secondary float-right" type="submit">Submit</button>

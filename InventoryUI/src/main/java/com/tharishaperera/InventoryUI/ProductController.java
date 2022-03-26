@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,16 @@ public class ProductController {
 
     private final static String BASE_URL = "http://localhost:8081";
 
+//    static List<String> productCategories = null;
+//
+//    static {
+//        productCategories.add("Electronic");
+//        productCategories.add("Automobile");
+//        productCategories.add("Textiles");
+//        productCategories.add("Engineering");
+//        productCategories.add("Pharmaceutical");
+//        productCategories.add("Telecommunication");
+//    }
     @GetMapping(path = "/products")
     public String productsView(Model model) {
         model.addAttribute("product", new Product());
@@ -57,9 +68,10 @@ public class ProductController {
         return "new_product";
     }
 
-    @PostMapping(path = "/new-product")
-    public String newProductById(Model model, @ModelAttribute Product product) {
-
+    @PostMapping(path = "/newProduct")
+    public String createNewProduct(Model model, @ModelAttribute Product product) {
+        RestTemplate restTemplate = new RestTemplate();
+//        Product newProduct = restTemplate.postForObject(BASE_URL + "/products", product, responseType)
         return "new_product";
     }
 
@@ -76,4 +88,13 @@ public class ProductController {
         model.addAttribute("editProduct", editProduct);
         return "edit_product";
     }
+
+    @DeleteMapping(path = "/delete-all-products")
+    public String deleteAllProducts(Model model, @ModelAttribute Product product) {
+        RestTemplate restTemplate = new RestTemplate();
+        Product deleteAllProduct = restTemplate.getForObject(BASE_URL + "/products", Product.class);
+        model.addAttribute("deleteAllProduct", deleteAllProduct);
+        return "product_home";
+    }
+
 }

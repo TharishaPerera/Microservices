@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Controller
 public class SupplierController {
 
@@ -23,9 +25,9 @@ public class SupplierController {
     }
 
     @GetMapping(path = "/search-supplier")
-    public String getSearchedSupplier(Model model) {
+    public String getSearchSupplier(Model model){
         model.addAttribute("supplier", new Supplier());
-        return "supplier";
+        return "search-supplier";
     }
 
     @GetMapping(path = "/add-supplier")
@@ -51,7 +53,7 @@ public class SupplierController {
         RestTemplate restTemplate = new RestTemplate();
         Supplier searchedSupplier = restTemplate.getForObject(BASE_URL  +"/suppliers/" + supplier.getSupplierId(), Supplier.class);
         model.addAttribute("searchedSupplier", searchedSupplier);
-        return "supplier";
+        return "search-supplier";
     }
 
 }

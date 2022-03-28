@@ -42,50 +42,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
                         </div>
                     </form>
-<!--                    <form class="col-md-4" action="#" th:action="@{search-product}" th:object="${product}" method="post">
-                        <label for="productName" class="form-label">Enter Product Name:</label>
-                        <input type="text" min="1" class="form-control" id="productName" th:field="*{productName}"/>
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
-                            <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
-                        </div>
-                    </form>
-                    <form class="col-md-4" action="#" th:action="@{search-product}" th:object="${product}" method="post">
-                        <label for="productType" class="form-label">Enter Product Type:</label>
-                        <input type="text" min="1" class="form-control" id="productType" th:field="*{productType}"/>
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-outline-dark btn-sm">Search</button>
-                            <button type="reset" class="btn btn-outline-dark btn-sm">Reset</button>
-                        </div>
-                    </form>-->
                 </div>
             </div>
-<!--            <div th:if="${searchedProduct}" class="row mt-3">
-                <table class="table table-hover">
-                    <thead class="thead-light">
-                        <th>Product ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Unit Price</th>
-                        <th>Availability</th>
-                        <th>Quantity</th>
-                        <th>Supplier ID</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td th:text="${searchedProduct.productId}"></td>
-                            <td th:text="${searchedProduct.productName}"></td>
-                            <td th:text="${searchedProduct.productDescription}"></td>
-                            <td th:text="${searchedProduct.productType}"></td>
-                            <td th:text="${searchedProduct.unitPrice}"></td>
-                            <td th:text="${searchedProduct.isAvailable}"></td>
-                            <td th:text="${searchedProduct.availableQuantity}"></td>
-                            <td th:text="${searchedProduct.supplierId}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>-->
 
             <div class="mt-5" th:if="${searchedProduct}">
                 <form class="row g-3">

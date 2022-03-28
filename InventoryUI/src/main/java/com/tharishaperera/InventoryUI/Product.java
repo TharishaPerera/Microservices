@@ -82,9 +82,4 @@ public class Product {
     public void setSupplierId(int supplierId) {
         this.supplierId = supplierId;
     }
-
-    @Override
-    public String toString() {
-        return "Product [productId = " + productId + ", productName = " + productName + ", productDescription = " + productDescription + ", productType = " + productType + ", unitPrice = " + unitPrice + ", isAvailable = " + isAvailable + ", availableQuantity = " + availableQuantity + ", supplierId = " + supplierId + ",]";
-    }
 }

@@ -23,16 +23,6 @@ public class ProductController {
 
     private final static String BASE_URL = "http://localhost:8081";
 
-//    static List<String> productCategories = null;
-//
-//    static {
-//        productCategories.add("Electronic");
-//        productCategories.add("Automobile");
-//        productCategories.add("Textiles");
-//        productCategories.add("Engineering");
-//        productCategories.add("Pharmaceutical");
-//        productCategories.add("Telecommunication");
-//    }
     @GetMapping(path = "/products")
     public String productsView(Model model) {
         model.addAttribute("product", new Product());

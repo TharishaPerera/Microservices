@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .col-3{
+            padding: 1rem;
+            background-color: lightgrey;
+            border: 2px solid #fff;
+        }
+
+        .my-container{
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+
+    <!--Main Row 0-->
+    <div class="row">
+        <div class="form">
+            <h2>Search supplier by ID</h2>
+            <form action="#" method="post"
+                  th:action="@{/search-supplier}"
+                  th:object="${supplier}">
+                <div class="container-md">
+                    <div class="row">
+                        <div class="col">
+                            <label th:for="id">Supplier ID: </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="id" th:field="*{supplierId}"/>
+                        </div>
+                        <div class="col">
+                            <input type="submit" value="Search"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Main Row 1-->
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="thead-light">
+                <th>Supplier ID</th>
+                <th>Supplier Name</th>
+                <th>Industry</th>
+                <th>Supplier Email</th>
+                <th>Supplier Telephone</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Postal Code</th>
+                </thead>
+                <tbody>
+                <tr th:if="${searchedSupplier}">
+                    <td th:text="${searchedSupplier.supplierId}"></td>
+                    <td th:text="${searchedSupplier.supplierName}"></td>
+                    <td th:text="${searchedSupplier.industry}"></td>
+                    <td th:text="${searchedSupplier.supplierEmail}"></td>
+                    <td th:text="${searchedSupplier.supplierTelephone}"></td>
+                    <td th:text="${searchedSupplier.street}"></td>
+                    <td th:text="${searchedSupplier.city}"></td>
+                    <td th:text="${searchedSupplier.country}"></td>
+                    <td th:text="${searchedSupplier.postalCode}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

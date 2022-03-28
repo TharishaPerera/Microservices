@@ -15,7 +15,7 @@
     <div class="row">
         <nav class="navbar">
             <div class="navbar-brand mt-3">
-                <h4 style="text-decoration: underline; color: #000;">Product Details</h4>
+                <h4 style="text-decoration: underline; color: #000;">Delete Products</h4>
             </div>
             <ul class="nav">
                 <li class="mx-1">
@@ -44,7 +44,9 @@
                     <label for="deleteAllBtn">Do you want tot delete all products:</label>
                 </div>
                 <div>
-                    <button id="deleteAllBtn" class="btn btn-outline-dark btn-sm px-5 py-2 my-3">Delete All</button>
+                    <form action="#" th:action="@{delete-all-products}" th:method="delete">
+                        <button id="deleteAllBtn" class="btn btn-outline-dark btn-sm px-5 py-2 my-3">Delete All</button>
+                    </form>
                 </div>
             </div>
         </div>

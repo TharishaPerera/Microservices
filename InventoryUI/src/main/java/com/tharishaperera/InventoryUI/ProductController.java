@@ -102,8 +102,9 @@ public class ProductController {
     @DeleteMapping(path = "/delete-all-products")
     public String deleteAllProducts(Model model, @ModelAttribute Product product) {
         RestTemplate restTemplate = new RestTemplate();
-        Product deleteAllProduct = restTemplate.getForObject(BASE_URL + "/products", Product.class);
-        model.addAttribute("deleteAllProduct", deleteAllProduct);
+        restTemplate.delete(BASE_URL + "/products");
+        // getForObject(BASE_URL + "/products", Product.class);
+        model.addAttribute("deleteAllProduct");
         return "product_home";
     }
 

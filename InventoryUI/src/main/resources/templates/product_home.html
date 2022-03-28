@@ -27,12 +27,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </style>
 
             <script>
-                function myPrompt(){
-                    var response = confirm("Are you sure you want to delete all products?");
-                    if(response == true){
-                        myAnchor.setAttribute("href", "/delete-all-products");
-                    }
-                }
+                // function myPrompt(){
+                //     var response = confirm("Are you sure you want to delete all products?");
+                //     if(response == true){
+                //         myAnchor.setAttribute("href", "/delete-all-products");
+                //     }
+                // }
             </script>
     </head>
     <body th:style="'height:100vh; width: 100%; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/CSS/Images/overlay.jpg), url(/CSS/Images/Background.jpg); background-repeat: no-repeat; background-position: top; background-size: cover;'">
@@ -50,17 +50,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                     <div class="col">
                         <div class="">
-                            <a href="/search-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Search Products</a>
+                            <a href="/search-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Get Products By ID</a>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="">
-                            <a href="/new-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Add New Product</a>
+                            <a href="/search-by-category" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Get Products By Category</a>
                         </div>
                     </div>
                 </div>
                 <div class="row w-100 p-3 align-items-center">
+                    <div class="col">
+                        <div class="">
+                            <a href="/new-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Add New Product</a>
+                        </div>
+                    </div>
+
                     <div class="col">
                         <div class="">
                             <a href="/edit-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Edit<br>Product</a>
@@ -69,15 +75,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                     <div class="col">
                         <div class="">
-                            <a onclick="myPrompt()" id="myAnchor" href="" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Delete All Products</a>
+                            <a href="/delete-product" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Delete Products</a>
                         </div>
                     </div>
 
-                    <div class="col">
-                        <div class="">
-                            <a href="#" style="margin-left: 50%; transform: translateX(-50%);" class="my-btn btn btn-light btn-lg py-3 px-5 text-uppercase">Delete Product By Id</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="row w-100 p-3 align-items-center">
                     <div class="">

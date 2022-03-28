@@ -52,6 +52,20 @@ public class ProductController {
         return "search_product";
     }
 
+    @GetMapping(path = "/search-by-category")
+    public String searchProductByCategoryView(Model model) {
+        model.addAttribute("product", new Product());
+        return "search_by_category";
+    }
+
+//    @PostMapping(path = "/search-by-category")
+//    public String searchProductByCategory(Model model, @ModelAttribute Product product) {
+//        RestTemplate restTemplate = new RestTemplate();
+//        Product searchedProduct = restTemplate.getForObject(BASE_URL + "/products/" + product.getProductId(), Product.class);
+//        model.addAttribute("searchedProduct", searchedProduct);
+//        return "search_by_category";
+//    }
+
     @GetMapping(path = "/new-product")
     public String newProductView(Model model) {
         model.addAttribute("product", new Product());
@@ -77,6 +91,12 @@ public class ProductController {
         Product editProduct = restTemplate.getForObject(BASE_URL + "/products/" + product.getProductId(), Product.class);
         model.addAttribute("editProduct", editProduct);
         return "edit_product";
+    }
+
+    @GetMapping(path = "/delete-product")
+    public String deleteProductView(Model model) {
+        model.addAttribute("product", new Product());
+        return "delete_product";
     }
 
     @DeleteMapping(path = "/delete-all-products")

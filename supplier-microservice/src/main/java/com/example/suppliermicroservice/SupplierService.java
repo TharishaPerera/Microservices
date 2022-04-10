@@ -21,8 +21,9 @@ public class SupplierService {
         Optional<Supplier> supplier = supplierRepository.findById(supplierId);
         if(supplier.isPresent())
             return supplier.get();
-        else
+        else{
             return null;
+        }
     }
 
     public List<Supplier> getSupplierByName(String supplierName){

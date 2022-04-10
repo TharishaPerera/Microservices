@@ -9,10 +9,24 @@
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-        .col-3{
+
+        body, html{
+            height: 100%;
+        }
+
+        .left-col{
             padding: 1rem;
             background-color: lightgrey;
             border: 2px solid #fff;
+            height: 100%;
+            position: fixed;
+        }
+
+        .right-col{
+            overflow-y: scroll;
+            top: 0;
+            left: 25%;
+            position: sticky;
         }
 
         .my-container{
@@ -22,17 +36,25 @@
             transform: translate(-50%, -50%);
             padding: 10px;
         }
+
+        .scrollable{
+            overflow-y: scroll;
+        }
+
+        .not-scrollable{
+            overflow-y: hidden;
+        }
+
+
+
     </style>
 
 </head>
 <body>
+
     <div class="container-fluid">
-
-        <!--Main Row 0-->
         <div class="row">
-
-            <!--Main Column 0-->
-            <div class="col-3 fixed-top one">
+            <div class="col-3 left-col">
                 <div class="row">
                     <h3 style="text-align: center">Supplier Dashboard</h3>
                 </div>
@@ -50,39 +72,38 @@
                 </div>
             </div>
 
-            <!--Main Column 1-->
-            <div class="col-9 offset-sm-9 two">
-                <div class="row p-3">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead class="thead-light">
-                            <th>Supplier ID</th>
-                            <th>Supplier Name</th>
-                            <th>Industry</th>
-                            <th>Supplier Email</th>
-                            <th>Supplier Telephone</th>
-                            <th>Street</th>
-                            <th>City</th>
-                            <th>Country</th>
-                            <th>Postal Code</th>
-                            </thead>
-                            <tbody>
-                            <tr th:each="supplier : ${suppliers}">
-                                <td th:text="${supplier.supplierId}"></td>
-                                <td th:text="${supplier.supplierName}"></td>
-                                <td th:text="${supplier.industry}"></td>
-                                <td th:text="${supplier.supplierEmail}"></td>
-                                <td th:text="${supplier.supplierTelephone}"></td>
-                                <td th:text="${supplier.street}"></td>
-                                <td th:text="${supplier.city}"></td>
-                                <td th:text="${supplier.country}"></td>
-                                <td th:text="${supplier.postalCode}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="col-9 right-col">
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped table-hover">
+                        <thead class="thead-light">
+                        <th>Supplier ID</th>
+                        <th>Supplier Name</th>
+                        <th>Industry</th>
+                        <th>Supplier Email</th>
+                        <th>Supplier Telephone</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Postal Code</th>
+                        </thead>
+                        <tbody>
+                        <tr th:each="supplier : ${suppliers}">
+                            <td th:text="${supplier.supplierId}"></td>
+                            <td th:text="${supplier.supplierName}"></td>
+                            <td th:text="${supplier.industry}"></td>
+                            <td th:text="${supplier.supplierEmail}"></td>
+                            <td th:text="${supplier.supplierTelephone}"></td>
+                            <td th:text="${supplier.street}"></td>
+                            <td th:text="${supplier.city}"></td>
+                            <td th:text="${supplier.country}"></td>
+                            <td th:text="${supplier.postalCode}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
+
         </div>
     </div>
 </body>

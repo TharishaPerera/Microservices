@@ -1,5 +1,5 @@
 # Microservices
-small microservices application for uinventory management
+small microservices application for inventory management
 
 -------------------
 

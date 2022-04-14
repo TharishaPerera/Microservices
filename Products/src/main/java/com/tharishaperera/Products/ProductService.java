@@ -71,9 +71,13 @@ public class ProductService {
                 product.setUnitPrice(productBody.getUnitPrice());
             }
 
-            if (productBody.isIsAvailable()) {
-                product.setIsAvailable(productBody.isIsAvailable());
+            if(productBody.getIsAvailable() != null){
+                product.setIsAvailable(productBody.getIsAvailable());
             }
+
+            // if (productBody.isIsAvailable()) {
+            //     product.setIsAvailable(productBody.isIsAvailable());
+            // }
 
             if (productBody.getAvailableQuantity() != 0) {
                 product.setAvailableQuantity(productBody.getAvailableQuantity());

@@ -75,7 +75,7 @@ public class ProductController {
     @PostMapping(path = "/newProduct")
     public String createNewProduct(Model model, @ModelAttribute Product product) {
         RestTemplate restTemplate = new RestTemplate();
-//        Product newProduct = restTemplate.postForObject(BASE_URL + "/products", product, responseType)
+        restTemplate.postForObject(BASE_URL + "/products", product, Product.class);
         return "new_product";
     }
 

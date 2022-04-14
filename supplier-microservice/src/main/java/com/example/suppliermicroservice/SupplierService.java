@@ -17,13 +17,13 @@ public class SupplierService {
         return supplierRepository.findAll();
     }
 
-    public Supplier getSupplierById(int supplierId){
+    public Supplier getSupplierById(int supplierId) throws RecordNotFoundException {
         Optional<Supplier> supplier = supplierRepository.findById(supplierId);
         if(supplier.isPresent())
             return supplier.get();
-        else{
-            return null;
-        }
+        else
+            throw new RecordNotFoundException("Not found");
+
     }
 
     public List<Supplier> getSupplierByName(String supplierName){

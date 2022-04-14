@@ -18,7 +18,7 @@ public class SupplierController {
     }
 
     @GetMapping(path = "/suppliers/{supplierId}")
-    public Supplier getSupplierById(@PathVariable int supplierId){
+    public Supplier getSupplierById(@PathVariable int supplierId) throws RecordNotFoundException{
         return supplierService.getSupplierById(supplierId);
     }
 

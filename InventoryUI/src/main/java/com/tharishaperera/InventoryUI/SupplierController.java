@@ -1,23 +1,26 @@
 package com.tharishaperera.InventoryUI;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
+import java.util.Arrays;
 
 @Controller
 public class SupplierController {
 
     private final static String BASE_URL = "http://localhost:8080";
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping(path = "/all-suppliers")
     public String getAllSuppliers(Model model){
-        RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Supplier[]> response = restTemplate.getForEntity(BASE_URL + "/suppliers", Supplier[].class);
         Supplier[] suppliers = response.getBody();
         model.addAttribute("suppliers", suppliers);
@@ -54,6 +57,11 @@ public class SupplierController {
         Supplier searchedSupplier = restTemplate.getForObject(BASE_URL  +"/suppliers/" + supplier.getSupplierId(), Supplier.class);
         model.addAttribute("searchedSupplier", searchedSupplier);
         return "search-supplier";
+    }
+
+    @RequestMapping(value = "/add-supplier", method = RequestMethod.POST)
+    public ResponseEntity<Supplier> addNewSupplier(Model model, @ModelAttribute Supplier supplier){
+        
     }
 
 }

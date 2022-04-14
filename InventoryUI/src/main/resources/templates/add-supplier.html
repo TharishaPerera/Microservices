@@ -9,63 +9,99 @@
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <style>
-        .my-container{
-            position: absolute;
-            left: 50%;
-            top: 20%;
-            transform: translate(-50%, -50%);
-            padding: 10px;
+        body, html{
+            height: 100%;
+        }
+
+        .left-col{
+            padding: 1rem;
+            background-color: lightgrey;
+            border: 2px solid #fff;
+            height: 100%;
+            position: fixed;
+        }
+
+        .right-col{
+            overflow-y: scroll;
+            top: 0;
+            left: 25%;
+            position: sticky;
         }
     </style>
 </head>
 <body>
 
-    <div class="container my-container">
-        <div class="form">
-            <h3>Add new supplier</h3>
-            <form action="#" method="post"
-                  th:action="@{/add-supplier}"
-                  th:object="${supplier}">
-                <div class="container-md">
-                    <div class="row">
-                        <div class="col"><label th:for="name">Supplier Name: </label></div>
-                        <div class="col"><input type="text" id="name" th:field="*{supplierName}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="industry">Industry: </label></div>
-                        <div class="col"><input type="text" id="industry" th:field="*{industry}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="email">Supplier Email: </label></div>
-                        <div class="col"><input type="text" id="email" th:field="*{supplierEmail}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="telephone">Supplier Telephone: </label></div>
-                        <div class="col"><input type="text" id="telephone" th:field="*{supplierTelephone}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="street">Street: </label></div>
-                        <div class="col"><input type="text" id="street" th:field="*{street}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="city">City: </label></div>
-                        <div class="col"><input type="text" id="city" th:field="*{city}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="country">Country: </label></div>
-                        <div class="col"><input type="text" id="country" th:field="*{country}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><label th:for="postalCode">Postal Code: </label></div>
-                        <div class="col"><input type="text" id="postalCode" th:field="*{postalCode}"/></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><button class="btn btn-secondary float-right" type="submit">Create</button></div>
-                        <div class="col"><button class="btn btn-outline-secondary float-right" type="reset">Reset</button></div>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-3 left-col">
+                <div class="row">
+                    <h3 style="text-align: center">Supplier Dashboard</h3>
                 </div>
-            </form>
+                <div class="row p-3 align-items-center">
+                    <a href="/all-suppliers" class="btn btn-light btn-lg py-3 px-5">View All Suppliers</a>
+                </div>
+                <div class="row p-3 align-items-center">
+                    <a href="/search-supplier" class="btn btn-light btn-lg py-3 px-5">Search Supplier</a>
+                </div>
+                <div class="row p-3 align-items-center">
+                    <a href="/edit-supplier" class="btn btn-light btn-lg py-3 px-5">Edit Supplier</a>
+                </div>
+                <div class="row p-3 align-items-center">
+                    <a href="/delete-supplier" class="btn btn-light btn-lg py-3 px-5">Delete Supplier</a>
+                </div>
+            </div>
+
+            <div class="col-9 right-col">
+                <div class="form">
+                    <h3>Add new supplier</h3>
+                    <form action="#" method="post"
+                          th:action="@{/add-supplier}"
+                          th:object="${supplier}">
+                        <div class="container-md">
+                            <div class="row">
+                                <div class="col"><label th:for="name">Supplier Name: </label></div>
+                                <div class="col"><input type="text" id="name" th:field="*{supplierName}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="industry">Industry: </label></div>
+                                <div class="col"><input type="text" id="industry" th:field="*{industry}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="email">Supplier Email: </label></div>
+                                <div class="col"><input type="text" id="email" th:field="*{supplierEmail}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="telephone">Supplier Telephone: </label></div>
+                                <div class="col"><input type="text" id="telephone" th:field="*{supplierTelephone}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="street">Street: </label></div>
+                                <div class="col"><input type="text" id="street" th:field="*{street}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="city">City: </label></div>
+                                <div class="col"><input type="text" id="city" th:field="*{city}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="country">Country: </label></div>
+                                <div class="col"><input type="text" id="country" th:field="*{country}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><label th:for="postalCode">Postal Code: </label></div>
+                                <div class="col"><input type="text" id="postalCode" th:field="*{postalCode}"/></div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><button class="btn btn-secondary float-right" type="submit">Create</button></div>
+                                <div class="col"><button class="btn btn-outline-secondary float-right" type="reset">Reset</button></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
+
     </div>
 
 </body>

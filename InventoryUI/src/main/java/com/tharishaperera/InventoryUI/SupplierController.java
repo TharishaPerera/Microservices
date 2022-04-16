@@ -59,9 +59,6 @@ public class SupplierController {
         return "search-supplier";
     }
 
-    @RequestMapping(value = "/add-supplier", method = RequestMethod.POST)
-    public ResponseEntity<Supplier> addNewSupplier(Model model, @ModelAttribute Supplier supplier){
-        
-    }
+
 
 }

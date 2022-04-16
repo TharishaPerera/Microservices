@@ -37,15 +37,20 @@ public class ProductController {
         return productService.getProductByID(productId);
     }
 
-//    @GetMapping(path = "/products/names")
-//    public List<Product> getProductByName(@RequestParam String productName){
-//        return productService.getProductByName(productName);
-//    }
+    @GetMapping(path = "/products/isAvailable")
+    public List<Product> getProductsByAvailability(@RequestParam String isAvailable) {
+        return productService.getProductByAvailability(isAvailable);
+    }
 
-//    @GetMapping(path = "/products/productType")
-//    public List<Product> getProductByType(@RequestParam String productType){
-//        return productService.getProductByType(productType);
-//    }
+    @GetMapping(path = "/products/productType")
+    public List<Product> getProductByType(@RequestParam String productType) {
+        return productService.getProductByType(productType);
+    }
+
+    @GetMapping(path = "/products/supplierId")
+    public List<Product> getProductsBySupplier(@RequestParam int supplierId){
+        return productService.getProductBySupplier(supplierId);
+    }
 
     @PostMapping(path = "/products")
     public void createProduct(@RequestBody Product product) {
@@ -61,7 +66,7 @@ public class ProductController {
 
     @DeleteMapping(path = "/products")
     public void deleteAllProducts() {
-        productService.deleteAllProducts();    
+        productService.deleteAllProducts();
         System.out.println("All products has been deleted successfully");
     }
 

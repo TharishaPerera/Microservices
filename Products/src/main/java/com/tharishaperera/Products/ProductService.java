@@ -19,12 +19,12 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    //Get All Product
+    // Get All Product
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    //Get Product By Id
+    // Get Product By Id
     public Product getProductByID(int productId) {
         Optional<Product> product = productRepository.findById(productId);
         if (product.isPresent()) {
@@ -33,22 +33,27 @@ public class ProductService {
         return null;
     }
 
-    //Get Product By Name
-//    public List<Product> getProductByName(String productName){
-//        return productRepository.getProductByName(productName);
-//    }
+    //Get Product By Availability
+    public List<Product> getProductByAvailability(String isAvailable){
+        return productRepository.getProductByAvailability(isAvailable);
+    }
 
-    //Get Product By Type
-//    public List<Product> getProductByType(String productType){
-//        return productRepository.getProductByType(productType);
-//    }
+    // Get Product By Type
+    public List<Product> getProductByType(String productType) {
+        return productRepository.getProductByType(productType);
+    }
 
-    //Create Product
+        // Get Product By Supplier
+        public List<Product> getProductBySupplier(int supplierId) {
+            return productRepository.getProductBySupplier(supplierId);
+        }
+
+    // Create Product
     public void createProduct(Product product) {
         productRepository.save(product);
     }
 
-    //Update Product
+    // Update Product
     public void updateProduct(int productId, Product productBody) {
         Optional<Product> productCollection = productRepository.findById(productId);
 
@@ -71,13 +76,9 @@ public class ProductService {
                 product.setUnitPrice(productBody.getUnitPrice());
             }
 
-            if(productBody.getIsAvailable() != null){
+            if (productBody.getIsAvailable() != null) {
                 product.setIsAvailable(productBody.getIsAvailable());
             }
-
-            // if (productBody.isIsAvailable()) {
-            //     product.setIsAvailable(productBody.isIsAvailable());
-            // }
 
             if (productBody.getAvailableQuantity() != 0) {
                 product.setAvailableQuantity(productBody.getAvailableQuantity());
@@ -91,12 +92,12 @@ public class ProductService {
         }
     }
 
-    //Delete Product By Id
+    // Delete Product By Id
     public void deleteProductById(int productId) {
         productRepository.deleteById(productId);
     }
 
-    //Delete All Products
+    // Delete All Products
     public void deleteAllProducts() {
         productRepository.deleteAll();
     }

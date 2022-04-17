@@ -33,8 +33,8 @@ public class ProductService {
         return null;
     }
 
-    //Get Product By Availability
-    public List<Product> getProductByAvailability(String isAvailable){
+    // Get Product By Availability
+    public List<Product> getProductByAvailability(String isAvailable) {
         return productRepository.getProductByAvailability(isAvailable);
     }
 
@@ -43,10 +43,10 @@ public class ProductService {
         return productRepository.getProductByType(productType);
     }
 
-        // Get Product By Supplier
-        public List<Product> getProductBySupplier(int supplierId) {
-            return productRepository.getProductBySupplier(supplierId);
-        }
+    // Get Product By Supplier
+    public List<Product> getProductBySupplier(int supplierId) {
+        return productRepository.getProductBySupplier(supplierId);
+    }
 
     // Create Product
     public void createProduct(Product product) {

@@ -6,14 +6,30 @@ package com.tharishaperera.Products;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> 37f5c28af472a206a8ad443ec5b34197f52b7bd4
 
 /**
  *
  * @author THARISHA
  */
+<<<<<<< HEAD
 
 @CrossOrigin
+=======
+@CrossOrigin(origins = "http://localhost:3000")
+>>>>>>> 37f5c28af472a206a8ad443ec5b34197f52b7bd4
 @RestController
 public class ProductController {
 
@@ -30,15 +46,20 @@ public class ProductController {
         return productService.getProductByID(productId);
     }
 
-//    @GetMapping(path = "/products/names")
-//    public List<Product> getProductByName(@RequestParam String productName){
-//        return productService.getProductByName(productName);
-//    }
+    @GetMapping(path = "/products/isAvailable")
+    public List<Product> getProductsByAvailability(@RequestParam String isAvailable) {
+        return productService.getProductByAvailability(isAvailable);
+    }
 
-//    @GetMapping(path = "/products/productType")
-//    public List<Product> getProductByType(@RequestParam String productType){
-//        return productService.getProductByType(productType);
-//    }
+    @GetMapping(path = "/products/productType")
+    public List<Product> getProductByType(@RequestParam String productType) {
+        return productService.getProductByType(productType);
+    }
+
+    @GetMapping(path = "/products/supplierId")
+    public List<Product> getProductsBySupplier(@RequestParam int supplierId){
+        return productService.getProductBySupplier(supplierId);
+    }
 
     @PostMapping(path = "/products")
     public void createProduct(@RequestBody Product product) {
@@ -54,7 +75,7 @@ public class ProductController {
 
     @DeleteMapping(path = "/products")
     public void deleteAllProducts() {
-        productService.deleteAllProducts();    
+        productService.deleteAllProducts();
         System.out.println("All products has been deleted successfully");
     }
 

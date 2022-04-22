@@ -30,15 +30,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <form class="row g-3" action="#" th:action="@{/newProduct}" th:object="${product}" method="post">
                     <div class="col-12">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input name="productName" type="text" class="form-control" id="productName" >
+                        <input name="productName" type="text" class="form-control" id="productName" th:field="*{productName}"/>
                     </div>
                     <div class="col-12">
                         <label for="description" class="form-label">Description</label>
-                        <input name="productDescription" type="text" class="form-control" id="description" >
+                        <input name="productDescription" type="text" class="form-control" id="description" th:field="*{productDescription}" />
                     </div>
                     <div class="col-md-6">
                         <label for="type" class="form-label">Product Category</label>
-                        <input name="productType" type="text" class="form-control" id="type" >
+                        <input name="productType" type="text" class="form-control" id="type" th:field="*{productType}" />
                             
 <!--                        <select class="form-select" name="product">
                             <option th:each="product : ${productCategories}" th:text="${product}" />
@@ -53,19 +53,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                     <div class="col-md-6">
                         <label for="unitPrice" class="form-label">Unit Price</label>
-                        <input name="unitPrice" type="text" class="form-control" id="unitPrice" >
+                        <input name="unitPrice" type="text" class="form-control" id="unitPrice" th:field="*{unitPrice}" />
                     </div>
                     <div class="col-md-4">
                         <label for="availablity" class="form-label">Availability</label>
-                        <input name="isAvailable" type="text" class="form-control" id="availablity" >
+                        <input name="isAvailable" type="text" class="form-control" id="availablity" th:field="*{isAvailable}" />
                     </div>
                     <div class="col-md-4">
                         <label for="quantity" class="form-label">Quantity</label>
-                        <input name="availableQuantity" type="text" class="form-control" id="quantity" >
+                        <input name="availableQuantity" type="text" class="form-control" id="quantity" th:field="*{availableQuantity}" />
                     </div>
                     <div class="col-md-4">
                         <label for="supplierId" class="form-label">Supplier ID</label>
-                        <input name="supplierId" type="text" class="form-control" id="supplierId" >
+                        <input name="supplierId" type="text" class="form-control" id="supplierId" th:field="*{supplierId}" />
                     </div>
                     <div class="col-12">
                         <button class="btn btn-secondary float-right" type="submit">Submit</button>

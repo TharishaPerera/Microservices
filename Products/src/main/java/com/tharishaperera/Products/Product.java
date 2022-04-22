@@ -28,7 +28,7 @@ public class Product {
     private double unitPrice;
 
     @Column(name = "isAvailable")
-    private boolean isAvailable;
+    private String isAvailable;
 
     @Column(name = "availableQuantity")
     private int availableQuantity;
@@ -76,11 +76,11 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public boolean isIsAvailable() {
+    public String getIsAvailable() {
         return isAvailable;
     }
 
-    public void setIsAvailable(boolean isAvailable) {
+    public void setIsAvailable(String isAvailable) {
         this.isAvailable = isAvailable;
     }
 

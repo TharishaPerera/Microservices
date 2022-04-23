@@ -5,11 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-<<<<<<< HEAD
-@CrossOrigin
-=======
 @CrossOrigin(origins = "http://localhost:3000")
->>>>>>> 37f5c28af472a206a8ad443ec5b34197f52b7bd4
 @RestController
 public class SupplierController {
 
